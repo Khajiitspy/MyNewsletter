@@ -22,6 +22,8 @@ namespace MyNewsletter
             InitializeComponent();
         }
 
+        public Brush SelectedTheme = Brushes.GhostWhite;
+
         private void PageTypeChoice(object sender, MouseButtonEventArgs e)
         {
             Border b= sender as Border;
@@ -38,23 +40,16 @@ namespace MyNewsletter
                 }
             }
 
-            b.Background = tB.Foreground;
+            SelectedTheme = tB.Foreground;
+            b.Background = SelectedTheme;
             tB.Foreground = Brushes.GhostWhite;
-        }
 
-        DropShadowEffect DSE = new DropShadowEffect() { Color = Colors.LightGray, BlurRadius = 10, ShadowDepth = 0 };
-        private void TypeChoice_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Border b = sender as Border;
-            DSE.BlurRadius = 20;
-            b.Effect = DSE.Clone();
-        }
+            SendButton.Background = SelectedTheme;
+            TextBlock SB = SendButton.Child as TextBlock;
+            SB.Foreground = Brushes.GhostWhite;
 
-        private void TypeChoice_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Border b = sender as Border;
-            DSE.BlurRadius = 10;
-            b.Effect = DSE.Clone();
+            TypeChoiceError.Foreground = SelectedTheme;
+            EmailError.Foreground = SelectedTheme;
         }
 
         bool DefaultTextBox = true;

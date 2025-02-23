@@ -13,6 +13,7 @@
             <Setter Property="Background" Value="GhostWhite"></Setter>
             <Setter Property="BorderThickness" Value="5"></Setter>
             <Setter Property="Padding" Value="2"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Effect">
@@ -34,7 +35,8 @@
 
     <Grid Background="Gainsboro">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Border Style="{StaticResource OuterUIItem}" HorizontalAlignment="Center">
+            <TextBlock FontSize="15" Margin="0,20,0,0" Padding="10,5" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code" Foreground="Black" Text="Type of Letter:"></TextBlock>
+            <Border Style="{StaticResource OuterUIItem}">
                 <StackPanel Orientation="Horizontal">
                     <Border x:Name="BirthdayChoice" CornerRadius="20" Background="Transparent" Padding="10,5" MouseLeftButtonUp="PageTypeChoice">
                         <TextBlock Background="Transparent" Foreground="HotPink" FontSize="20" FontFamily="Cascadia Code SemiBold"> Birthday</TextBlock>
@@ -47,9 +49,14 @@
                     </Border>
                 </StackPanel>
             </Border>
+            <TextBlock x:Name="TypeChoiceError" FontSize="10" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code" Foreground="Crimson"></TextBlock>
             <TextBlock FontSize="15" Margin="0,20,0,0" Padding="10,5" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code" Foreground="Black" Text="Send To:"></TextBlock>
             <Border Style="{StaticResource OuterUIItem}" Width="250">
                 <TextBox x:Name="SendToBox" FontSize="17" Padding="10,5" BorderThickness="0" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code SemiBold" Foreground="LightGray" TextChanged="SendTo_TextChanged" PreviewTextInput="SendToBox_PreviewTextInput">Recipient@Example.com</TextBox>
+            </Border>
+            <TextBlock x:Name="EmailError" FontSize="10" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code" Foreground="Crimson"></TextBlock>
+            <Border x:Name="SendButton"  Style="{StaticResource OuterUIItem}" Margin="0,10,0,0">
+                <TextBlock Background="Transparent" FontFamily="Cascadia Code" FontSize="15" Padding="10,5">Send =></TextBlock>
             </Border>
         </StackPanel>
     </Grid>
