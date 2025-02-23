@@ -1,0 +1,56 @@
+﻿<Window x:Class="MyNewsletter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyNewsletter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+
+        <Style x:Key="OuterUIItem" TargetType="Border">
+            <Setter Property="CornerRadius" Value="20"></Setter>
+            <Setter Property="Background" Value="GhostWhite"></Setter>
+            <Setter Property="BorderThickness" Value="5"></Setter>
+            <Setter Property="Padding" Value="2"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="LightGray" BlurRadius="20" ShadowDepth="0"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="LightGray" BlurRadius="10" ShadowDepth="0"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="Gainsboro">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border Style="{StaticResource OuterUIItem}" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Border x:Name="BirthdayChoice" CornerRadius="20" Background="Transparent" Padding="10,5" MouseLeftButtonUp="PageTypeChoice">
+                        <TextBlock Background="Transparent" Foreground="HotPink" FontSize="20" FontFamily="Cascadia Code SemiBold"> Birthday</TextBlock>
+                    </Border>
+                    <Border x:Name="SaleChoice" CornerRadius="20" Background="Transparent" Padding="10,5" MouseLeftButtonUp="PageTypeChoice">
+                        <TextBlock Background="Transparent" Foreground="ForestGreen" FontSize="20" FontFamily="Cascadia Code SemiBold">Sale</TextBlock>
+                    </Border>
+                    <Border x:Name="NewsChoice" CornerRadius="20" Background="Transparent" Padding="10,5" MouseLeftButtonUp="PageTypeChoice">
+                        <TextBlock Background="Transparent" Foreground="DarkGoldenrod" FontSize="20" FontFamily="Cascadia Code SemiBold">News</TextBlock>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <TextBlock FontSize="15" Margin="0,20,0,0" Padding="10,5" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code" Foreground="Black" Text="Send To:"></TextBlock>
+            <Border Style="{StaticResource OuterUIItem}" Width="250">
+                <TextBox x:Name="SendToBox" FontSize="17" Padding="10,5" BorderThickness="0" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code SemiBold" Foreground="LightGray" TextChanged="SendTo_TextChanged" PreviewTextInput="SendToBox_PreviewTextInput">Recipient@Example.com</TextBox>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
