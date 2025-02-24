@@ -8,4 +8,17 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\BirthdayBack.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.10.0" />
+    <PackageReference Include="MimeKit" Version="4.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\BirthdayBack.jpg" />
+  </ItemGroup>
+
 </Project>

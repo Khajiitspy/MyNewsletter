@@ -55,7 +55,7 @@
                 <TextBox x:Name="SendToBox" FontSize="17" Padding="10,5" BorderThickness="0" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code SemiBold" Foreground="LightGray" TextChanged="SendTo_TextChanged" PreviewTextInput="SendToBox_PreviewTextInput">Recipient@Example.com</TextBox>
             </Border>
             <TextBlock x:Name="EmailError" FontSize="10" Background="Transparent" TextAlignment="Center" FontFamily="Cascadia Code" Foreground="Crimson"></TextBlock>
-            <Border x:Name="SendButton"  Style="{StaticResource OuterUIItem}" Margin="0,10,0,0">
+            <Border x:Name="SendButton"  Style="{StaticResource OuterUIItem}" Margin="0,10,0,0" MouseLeftButtonUp="SendButton_MouseLeftButtonUp">
                 <TextBlock Background="Transparent" FontFamily="Cascadia Code" FontSize="15" Padding="10,5">Send =></TextBlock>
             </Border>
         </StackPanel>
