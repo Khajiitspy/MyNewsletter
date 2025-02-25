@@ -89,6 +89,7 @@ namespace MyNewsletter
                 if (SelectedTheme != Brushes.GhostWhite)
                 {
                     bool EmailSent = false;
+                    string From = (String.IsNullOrEmpty(FromNickname.Text)?"User":FromNickname.Text);
                     if (SelectedTheme == Brushes.HotPink)
                     {
                         BodyBuilder body = new BodyBuilder();
@@ -101,10 +102,11 @@ namespace MyNewsletter
                         body.HtmlBody = 
                             $"<div style=\" width: 600px; height: 350px; background-color: lightblue; background-image: url(cid:{image.ContentId}); background-repeat: no-repeat; background-size: cover;\">" +
                                 $"\r<h1 style=\"display: flex; justify-content: center; align-items: center; padding: 20px; text-shadow: -1px -1px 0px White, 1px -1px 0px White, -1px 1px 0px White, 1px 1px 0px White; color: #ffd800\">Happy Birthday {SendToBox.Text}!</h1>" +
-                            $"\r</div>";
+                            $"\r</div>" +
+                            $"<h1> Sincerely, From {From}</h1>";
 
 
-                        EmailSender.SendEmail("User", SendToBox.Text, "Happy Birthday!", body);
+                        EmailSender.SendEmail(From, SendToBox.Text, "Happy Birthday!", body);
                         EmailSent = true;
                     }
                     else if (SelectedTheme == Brushes.ForestGreen)
@@ -114,9 +116,10 @@ namespace MyNewsletter
                         body.HtmlBody =
                             $"<div style=\" width: 600px; height: 350px; background-color: ForestGreen; background-repeat: no-repeat; background-size: cover;\">" +
                                 $"\r<h1 style=\"display: flex; justify-content: center; align-items: center; padding: 20px; text-shadow: -1px -1px 0px White, 1px -1px 0px White, -1px 1px 0px White, 1px 1px 0px White; color: #ffd800\">{SendToBox.Text}, Don't Miss the new Sale!</h1>" +
-                            $"\r</div>";
+                            $"\r</div>" +
+                            $"<h1> Only at {From}</h1>";
 
-                        EmailSender.SendEmail("User", SendToBox.Text, "Sale", body);
+                        EmailSender.SendEmail(From, SendToBox.Text, "Sale", body);
                         EmailSent = true;
                     }
                     else if (SelectedTheme == Brushes.DarkGoldenrod)
@@ -131,8 +134,9 @@ namespace MyNewsletter
                         body.HtmlBody =
                             $"<div style=\" width: 600px; height: 350px; background-color: ForestGreen; background-image: url(cid:{image.ContentId}); background-repeat: no-repeat; background-size: cover;\">" +
                                 $"\r<h1 style=\"display: flex; justify-content: center; align-items: center; padding: 20px; text-shadow: -1px -1px 0px White, 1px -1px 0px White, -1px 1px 0px White, 1px 1px 0px White; color: #ffd800\">{SendToBox.Text}, Wildfires broke out near you!</h1>" +
-                            $"\r</div>";
-                        EmailSender.SendEmail("User", SendToBox.Text, "NewsLetter", body);
+                            $"\r</div>" +
+                            $"<h1> {From} Headline </h1>";
+                        EmailSender.SendEmail(From, SendToBox.Text, "NewsLetter", body);
                         EmailSent = true;
                     }
                     if (EmailSent == true)
